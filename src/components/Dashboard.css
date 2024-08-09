@@ -1,0 +1,126 @@
+/* Dashboard.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #b4aeae;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.table-container {
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th, table td {
+    padding: 12px;
+    border: 1px solid #030303;
+    text-align: left;
+}
+
+table th {
+    background-color: #615b5b;
+}
+
+button {
+    margin-right: 5px;
+    padding: 8px 12px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0px; /* Label'lar arasındaki boşluğu pozitif bir değerde tutun */
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Label ve input arasındaki yatay boşluk */
+}
+
+.form-group label {
+    flex: 0 0 auto; /* Label'ın genişliğini sabit tut */
+    font-weight: bold;
+}
+
+.form-group input, .form-group select {
+    flex: 1; /* Input'un kalan alanı kaplamasını sağla */
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.form-container button {
+    align-self: flex-start;
+    background-color: #28a745;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 16px; /* Buton ile üstteki eleman arasındaki boşluk */
+}
+
+.modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 600px;
+    text-align: left;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
