@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+## Türkçe
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Öğrenci Bilgi Sistemi Frontend
 
-## Available Scripts
+Bu depo, Öğrenci Bilgi Sistemi projesinin ön yüzünü içerir. Ön uç, kullanıcı arayüzleri oluşturmak için güçlü bir JavaScript çerçevesi olan React kullanılarak geliştirilmiştir ve öğrenci ve kurs verileri üzerinde CRUD işlemleri gerçekleştirmek için arka uç API ile iletişim kurar.
 
-In the project directory, you can run:
+## Kullanılan Teknolojiler
 
-### `npm start`
+- **JavaScript**: Dinamik ve etkileşimli web uygulamaları oluşturmak için gerekli olan çok yönlü, yüksek seviyeli bir programlama dili.
+- **React**: Hızlı ve etkileşimli kullanıcı arayüzleri oluşturmak için bir JavaScript kütüphanesi.
+- **Axios**: Arka uç API ile etkileşim için kullanılan söz tabanlı bir HTTP istemcisi.
+- **HTML**: Web sayfaları oluşturmak için standart biçimlendirme dili.
+- **CSS**: Uygulamanın görünümünü ve biçimlendirmesini tanımlamak için kullanılan stil sayfası dili.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Proje Yapısı
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Bileşenler**: Kullanıcı arayüzünün belirli bölümlerini oluşturmaktan sorumlu olan bireysel React bileşenlerini içerir.
+- **Hizmetler**: Arka uca HTTP isteklerini işleyen API hizmet dosyalarını içerir.
+- **Stiller**: Uygulamanın stilini tanımlayan CSS dosyalarını içerir.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## English
 
-### `npm run build`
+# Student Information System Frontend
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This repository contains the frontend of the Student Information System project. The frontend is developed using React, a powerful JavaScript framework for building user interfaces, and communicates with the backend API to perform CRUD operations on student and course data.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Technologies Used
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **JavaScript**: A versatile, high-level programming language that is essential for building dynamic and interactive web applications.
+- **React**: A JavaScript library for building fast and interactive user interfaces.
+- **Axios**: A promise-based HTTP client used to interact with the backend API.
+- **HTML**: The standard markup language for creating web pages.
+- **CSS**: The style sheet language used for describing the look and formatting of the application.
 
-### `npm run eject`
+## Project Structure
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Components**: Contains individual React components that are responsible for rendering specific parts of the UI.
+- **Services**: Includes API service files that handle HTTP requests to the backend.
+- **Styles**: Contains the CSS files that define the styling of the application.
