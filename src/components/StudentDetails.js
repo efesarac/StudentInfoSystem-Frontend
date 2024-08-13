@@ -4,32 +4,37 @@ import { Modal, Button } from "react-bootstrap";
 
 const StudentDetails = ({ student, onClose, courses }) => {
     const [selectedCourseId, setSelectedCourseId] = useState("");
-    const [editMode, setEditMode] = useState(false);
     const [name, setName] = useState(student.name);
     const [email, setEmail] = useState(student.email);
     const [dateOfBirth, setDateOfBirth] = useState(student.dateOfBirth);
     const [enrollmentDate, setEnrollmentDate] = useState(student.enrollmentDate);
     const [showEditModal, setShowEditModal] = useState(false);
-
+    const [studentCourses, setStudentsCourses] = useState(student.studentCourses || []);
+    
+    
+    
     const handleAddCourse = async () => {
         if (selectedCourseId) {
-            try {
-                await addCourseToStudent(student.studentId, selectedCourseId);
-                alert("Ders başarıyla eklendi!");
-            } catch (error) {
-                console.error("Error adding course:", error);
-                alert("Failed to add course.");
+            const courseIdToAdd = parseInt(selectedCourseId, 10);
+            await addCourseToStudent(student.studentId, selectedCourseId);
+            const addedCourse = courses.find(course => course.courseId === courseIdToAdd);
+            if(addedCourse){
+                setStudentsCourses(prevCourses => [
+                    ...prevCourses,
+                    {
+                        courseId: addedCourse.courseId,courseName : addedCourse.name
+                    }
+                ]);
             }
-        } else {
-            alert("Lütfen ders seçiniz");
-        }
+            alert("Ders başarıyla eklendi!");
+        } 
     };
 
     const handleEditStudent = async () => {
         try {
             await updateStudent(student.studentId, { name, email, dateOfBirth, enrollmentDate });
             alert("Student updated successfully!");
-            setEditMode(false);
+
             setShowEditModal(false);
         } catch (error) {
             console.error("Error updating student:", error);
@@ -42,7 +47,6 @@ const StudentDetails = ({ student, onClose, courses }) => {
     };
 
     const handleCancel = () => {
-        setEditMode(false);
         setName(student.name);
         setEmail(student.email);
         setDateOfBirth(student.dateOfBirth);
@@ -53,55 +57,60 @@ const StudentDetails = ({ student, onClose, courses }) => {
     if (!student) return null;
 
     return (
-        <div className="modal">
-            <div className="modal-content">
-                <span className="close" onClick={onClose}>&times;</span>
-                <h2>{student.name}'s Details</h2>
-                <p><strong>Email:</strong> {student.email}</p>
-                <p><strong>Date of Birth:</strong> {new Date(student.dateOfBirth).toLocaleDateString()}</p>
-                <p><strong>Enrollment Date:</strong> {new Date(student.enrollmentDate).toLocaleDateString()}</p>
-                <h3>Courses:</h3>
-                <ul>
-                    {student.studentCourses && student.studentCourses.length > 0 ? (
-                        student.studentCourses.map(sc => (
-                            sc.courseName ? <li key={sc.courseId}>{sc.courseName}</li> : <li key={sc.courseId}>Course information not available</li>
-                        ))
-                    ) : (
-                        <li>No courses available</li>
-                    )}
-                </ul>
-                <h3>Add Course</h3>
-                <select value={selectedCourseId} onChange={(e) => setSelectedCourseId(e.target.value)}>
-                    <option value="">Select a course</option>
-                    {courses.map(course => (
-                        <option key={course.courseId} value={course.courseId}>{course.name}</option>
-                    ))}
-                </select>
-                <button onClick={handleAddCourse}>Add Course</button>
-                <button onClick={handleEditMode}>Edit</button>
-            </div>
-
-            <Modal show={showEditModal} onHide={handleCancel}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Edit {student.name}'s Details</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                    <input type="date" value={dateOfBirth} onChange={(e) => setDateOfBirth(e.target.value)} />
-                    <input type="date" value={enrollmentDate} onChange={(e) => setEnrollmentDate(e.target.value)} />
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleCancel}>
-                        Cancel
-                    </Button>
-                    <Button variant="primary" onClick={handleEditStudent}>
-                        Save Changes
-                    </Button>
-                </Modal.Footer>
-            </Modal>
-        </div>
-    );
+        <Modal show={true} onHide={onClose}>
+        <Modal.Header closeButton>
+            <Modal.Title>{student.name} Detaylar</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+            <p><strong>Email:</strong> {student.email}</p>
+            <p><strong>Doğum Tarihi:</strong> {new Date(student.dateOfBirth).toLocaleDateString()}</p>
+            <p><strong>Kayıt Tarihi:</strong> {new Date(student.enrollmentDate).toLocaleDateString()}</p>
+            <h3>Dersler:</h3>
+            <ul>
+                {studentCourses && studentCourses.length > 0 ? (
+                    studentCourses.map(sc => (
+                        sc.courseName ? <li key={sc.courseId}>{sc.courseName}</li> : <li key={sc.courseId}>Ders bilgisi mevcut değil</li>
+                    ))
+                ) : (
+                    <li>Mevcut ders yok</li>
+                )}
+            </ul>
+            <h3>Ders Ekle</h3>
+            <select value={selectedCourseId} onChange={(e) => setSelectedCourseId(e.target.value)}>
+                <option value="">Bir ders seçin</option>
+                {courses.map(course => (
+                    <option key={course.courseId} value={course.courseId}>{course.name}</option>
+                ))}
+            </select>
+            <Button variant="primary" onClick={handleAddCourse} className="mt-2">
+                Ders Ekle
+            </Button>
+            <Button variant="secondary" onClick={handleEditMode} className="mt-2">
+                Düzenle
+            </Button>
+        </Modal.Body>
+        <Modal show={showEditModal} onHide={handleCancel}>
+            <Modal.Header closeButton>
+                <Modal.Title>{student.name} Bilgilerini Düzenle</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <input type="text" value={name} onChange={(e) => setName(e.target.value)} className="form-control mb-2" placeholder="Ad" />
+                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="form-control mb-2" placeholder="Email" />
+                <input type="date" value={dateOfBirth} onChange={(e) => setDateOfBirth(e.target.value)} className="form-control mb-2" placeholder="Doğum Tarihi" />
+                <input type="date" value={enrollmentDate} onChange={(e) => setEnrollmentDate(e.target.value)} className="form-control mb-2" placeholder="Kayıt Tarihi" />
+            </Modal.Body>
+            <Modal.Footer>
+                <Button variant="secondary" onClick={handleCancel}>
+                    İptal
+                </Button>
+                <Button variant="primary" onClick={handleEditStudent}>
+                    Kaydet
+                </Button>
+            </Modal.Footer>
+        </Modal>
+    </Modal>
+);
+    
 };
 
 export default StudentDetails;

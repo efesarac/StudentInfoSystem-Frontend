@@ -1,0 +1,28 @@
+.custom-navbar {
+    border: 2px solid black; /* Siyah çerçeve */
+    background-color: #dbdbdb; /* Hafif gri arka plan */
+    border-radius: 8px; /* Köşeleri yuvarlama */
+    padding: 10px; /* İçerik dolgunluğu */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+}
+
+.custom-navbar .navbar-brand {
+    font-weight: bold;
+    color: #0c68c4; /* Koyu gri renk */
+    font-size: 1.5rem; /* Yazı boyutunu büyütelim */
+}
+
+.custom-navbar .nav-link {
+    color: #000000; /* Bootstrap'in varsayılan mavi rengi */
+    font-weight: 500;
+    margin-right: 15px; /* Linkler arası boşluk */
+    transition: color 0.3s ease; /* Hover efekt için geçiş */
+}
+
+.custom-navbar .nav-link:hover {
+    color: #0056b3; /* Daha koyu mavi renk hover durumda */
+}
+
+.custom-navbar .navbar-toggler {
+    border-color: #1c2836; /* Toggler butonu için mavi renk */
+}

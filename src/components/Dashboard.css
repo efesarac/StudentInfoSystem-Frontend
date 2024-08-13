@@ -1,4 +1,3 @@
-/* Dashboard.css */
 body {
     font-family: Arial, sans-serif;
     background-color: #b4aeae;
@@ -87,7 +86,7 @@ button:hover {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 16px; /* Buton ile üstteki eleman arasındaki boşluk */
+    margin-top: 10px; /* Buton ile üstteki eleman arasındaki boşluk */
 }
 
 .modal {

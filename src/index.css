@@ -179,12 +179,12 @@ table tr:hover {
 }
 
 .modal-content h2 {
-  color: #ff5722; /* Turuncu renk */
+  color: #cc1d1d; 
   margin: 0 0 1rem 0;
 }
 
 .modal-content h3 {
-  color: #e91e63; /* Pembe renk */
+  color: #000000; 
   margin: 1rem 0 0.5rem 0;
 }
 
@@ -207,7 +207,7 @@ table tr:hover {
 }
 
 .modal-content button {
-    background-color: #ff5722; /* Turuncu renk */
+    background-color: #ff0000; /* Turuncu renk */
     color: #fff;
     border: none;
     cursor: pointer;
@@ -327,6 +327,14 @@ button {
   transition: background-color 0.3s ease;
 }
 
-button:hover {
+button.details{
   background-color: #0056b3;
+}
+
+button.edit {
+  background-color: #0056b3;
+}
+
+button.delete{
+  background-color: #ff0000;
 }
